@@ -1,0 +1,137 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        //onix调试程序配置: 用于调试内核qemu
+        {
+            "name": "(onix) 内核C调试",
+            "type": "cppdbg",
+            "request": "launch",
+            //"program": "${workspaceFolder}/onix/build/kernel.bin",
+            "program": "/home/qwas/onix/build/kernel.bin",
+            "args": [],
+            "stopAtEntry": false,
+            //"cwd": "${fileDirname}",
+            "cwd": "/home/qwas/onix/src",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerServerAddress": "localhost:1234",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+            ],
+            //"preLaunchTask": "C/C++: gcc 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb",
+        /*
+            //底下可以不要
+            "logging": {
+                "engineLogging": true
+            },
+            "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /usr/bin/gdb -q --interpreter=mi",
+            //"miDebuggerArgs": "",
+            "stopAtConnect": false,
+        */   
+        }, 
+
+
+        //gdb调试程序配置
+        {
+            "name": "(gdb) 一般C调试",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+
+        /*
+                 {
+                    "description": "加载符号表",
+                    "text": "file /home/qwas/onix/build/kernel.bin",
+                },
+                {
+                    "description": "禁用终端警告",
+                    "text": "set startup-with-shell off"
+                }
+        */
+            ],
+            "preLaunchTask": "C/C++: gcc 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb",
+            //底下可以不要
+            "logging": {
+                "engineLogging": true
+            },
+            //"miDebuggerArgs": "",
+            "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /usr/bin/gdb -q --interpreter=mi",
+            "stopAtConnect": false,
+            /*
+            "sourceFileMap": {
+                "/home/qwas/onix": "${workspaceFolder}"    //映射关系不对
+            } */
+            
+        },
+        
+        
+
+        //nasm调试程序配置
+        {
+            "name": "(nasm) 调试",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+
+            ],
+            "preLaunchTask": "nasm: gcc 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb",
+           /*
+            "logging": {
+                "engineLogging": true
+            },
+            "miDebuggerArgs": "",
+            //"miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /usr/bin/gdb -q --interpreter=mi",
+            "stopAtConnect": false,
+            */
+        }    
+
+
+    ]
+}

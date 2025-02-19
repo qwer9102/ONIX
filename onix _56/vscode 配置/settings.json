@@ -1,0 +1,11 @@
+{
+    "cmake.sourceDirectory": "/home/qwas/os/code/c04.05",
+    "terminal.integrated.shellIntegration.enabled": false,
+    "files.associations": {
+        "debug.h": "c",
+        "algorithm": "c",
+        "task.h": "c",
+        "interrupt.h": "c",
+        "mutex.h": "c"
+    }
+}
