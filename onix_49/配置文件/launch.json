@@ -1,0 +1,105 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(onix) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            //"program": "${workspaceFolder}/onix/build/kernel.bin",
+            "program": "/home/qwas/onix/build/kernel.bin",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            //"externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerServerAddress": "localhost:1234",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "加载符号表",
+                    "text": "file /home/qwas/onix/build/kernel.bin",
+                },
+                {
+                    "description": "禁用终端警告",
+                    "text": "set startup-with-shell off"
+                }
+            ],
+            //"preLaunchTask": "C/C++: gcc 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "logging": {
+                "engineLogging": true
+            },
+            "miDebuggerArgs": "",
+            //"miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /usr/bin/gdb -q --interpreter=mi",
+            "stopAtConnect": false,
+            /*"sourceFileMap": {
+                //"/usr/src/debug": "${workspaceFolder}"
+                "/usr/src/debug": "/home/qwas/onix"
+            } */
+        }, 
+
+
+
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "加载符号表",
+                    "text": "file ${fileDirname}/${fileBasenameNoExtension}.out"
+                },
+                {
+                    "description": "禁用终端警告",
+                    "text": "set startup-with-shell off"
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "logging": {
+                "engineLogging": true
+            },
+            "miDebuggerArgs": "",
+            "stopAtConnect": false,
+            /*
+            "sourceFileMap": {
+                //"/usr/src/debug": "${workspaceFolder}"
+                "/usr/src/debug": "/home/qwas/onix"
+            } */
+            
+        }    
+
+
+
+
+
+    ]
+}
