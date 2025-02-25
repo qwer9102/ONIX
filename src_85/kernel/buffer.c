@@ -189,7 +189,7 @@ void brelse(buffer_t *bf)
     bf->count--;
     assert(bf->count >= 0);
     //count = 0,释放并加入到free_list中管理
-    if(!bf->count)
+    if(bf->count)
         return;
         
     assert(!bf->rnode.next);
